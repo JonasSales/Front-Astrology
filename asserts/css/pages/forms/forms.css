@@ -1,0 +1,207 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    color: #333; /* Cor do texto em cinza escuro */
+}
+
+/* Cabeçalho */
+header {
+    width: 100%;
+    background-color: #6a1b9a; /* Roxo escuro */
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 1.8em;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffeb3b; /* Amarelo claro ao passar o mouse */
+}
+
+/* Rodapé */
+footer {
+    width: 100%;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer .footer-container p {
+    margin: 5px 0;
+    font-size: 0.9em;
+}
+
+/* Container Principal */
+.container {
+    width: 100%;
+    max-width: 600px; /* Máxima largura para o formulário */
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Seção do Formulário */
+.form-container {
+    width: 100%;
+}
+
+/* Cada Grupo de Campo */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Estilo para os rótulos */
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #6a1b9a; /* Roxo escuro nos rótulos */
+}
+
+/* Estilo para os campos de entrada */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e0e0e0; /* Borda cinza claro */
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Estilo do botão de envio */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #9c4dcc; /* Roxo médio para o botão */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Alteração de cor ao passar o mouse no botão */
+button[type="submit"]:hover {
+    background-color: #6a1b9a; /* Roxo escuro ao passar o mouse */
+}
+
+/* Estilo para campos obrigatórios */
+input:required {
+    border-color: #e74c3c;
+}
+
+input:required:valid {
+    border-color: #2ecc71;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    /* Ajustes no cabeçalho */
+    header h1 {
+        font-size: 1.6em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    /* Ajustes no formulário */
+    .container {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .form-group input {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button[type="submit"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
+
+/* Responsividade para telas menores (mobile) */
+@media (max-width: 480px) {
+    /* Ajustes no cabeçalho */
+    header h1 {
+        font-size: 1.4em;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 8px 0;
+    }
+
+    /* Ajustes no formulário */
+    .container {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .form-group input {
+        font-size: 14px;
+        padding: 6px;
+    }
+
+    button[type="submit"] {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

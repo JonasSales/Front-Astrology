@@ -1,0 +1,18 @@
+@import './fonts.css';
+@import './elements.css';
+@import './normalize.css';
+@import './variables.css';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ocupa toda a altura da tela */
+}   
