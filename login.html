@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário de Cadastro</title>
-    <link rel="stylesheet" href="asserts/css/pages/forms/forms.css"> <!-- Incluindo o CSS externo -->
+    <link rel="stylesheet" href="asserts/css/pages/register/register.css"> <!-- Incluindo o CSS externo -->
 </head>
 <body>
 
     <header>
         <div class="header-container">
-            <h1>Formulário de Cadastro</h1>
+            <h1>Formulário de Login</h1>
             <nav>
                 <ul>
                     <li><a href="/">Início</a></li>
@@ -24,31 +24,12 @@
 
     <main class="container">
         <section class="form-container">
-            <h2>Preencha seus dados para o cadastro</h2>
-            <form id="formCadastro" action="/submit" method="POST">
-                <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" id="nome" name="nome" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="sobrenome">Sobrenome:</label>
-                    <input type="text" id="sobrenome" name="sobrenome" required>
-                </div>
+            <h2>Preencha seus dados para o login</h2>
+            <form id="formLogin" action="/submit" method="POST">
 
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="cpf">CPF:</label>
-                    <input type="text" id="cpf" name="cpf" required minlength="14" maxlength="14" autocomplete="off">
-                </div>
-
-                <div class="form-group">
-                    <label for="telefone">Telefone:</label>
-                    <input type="text" id="telefone" name="telefone" minlength="14" maxlength="15" required>
                 </div>
 
                 <div class="form-goup">
@@ -57,9 +38,10 @@
                 </div>
                 <br>
                 <div class="form-group">
-                    <button type="submit">Enviar</button>
+                    <button type="submit">Entrar</button>
                 </div>
             </form>
+            <a href="/register.html">Cadastrar conta</a>
         </section>
     </main>
 
@@ -69,7 +51,6 @@
             <p>Desenvolvido por Jonas Sales de Oliveira</p>
         </div>
     </footer>
-
-    <script src="build/pages/forms/forms.js"></script>
+    <script src="build/pages/login/login.js"></script>
 </body>
 </html>

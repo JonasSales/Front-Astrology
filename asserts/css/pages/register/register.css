@@ -49,6 +49,7 @@ nav ul li a {
     text-decoration: none;
     color: #fff;
     font-size: 1em;
+    font-family: Arial, sans-serif;
     transition: color 0.3s;
 }
 
@@ -56,6 +57,17 @@ nav ul li a:hover {
     color: #ffeb3b; /* Amarelo claro ao passar o mouse */
 }
 
+body main section a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+/* Botão de login / cadastrar conta*/
+body main section a:hover{
+    color: #6a1b9a;
+}
 /* Rodapé */
 footer {
     width: 100%;
