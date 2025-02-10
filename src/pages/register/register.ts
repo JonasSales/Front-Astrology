@@ -159,7 +159,6 @@ formRegister.addEventListener("submit", async (event) => {
         alert("Cadastro realizado com sucesso!");
         formRegister.reset();
     } catch (error) {
-        console.error("Erro ao enviar:");
         alert("Erro ao enviar o formulário.");
     }
 });

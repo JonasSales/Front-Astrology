@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Partículas Aleatórias</title>
+    <style>
+        body {
+            background-color: #0a0a0a;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0;
+            animation: flicker 2s infinite alternate ease-in-out;
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.8),
+                        0 0 10px rgba(255, 255, 255, 0.6),
+                        0 0 15px rgba(255, 255, 255, 0.4);
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 0.4; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="particles-container"></div>
+
+    <script>
+        const container = document.querySelector('.particles-container');
+        const colors = [
+            '#ffffff', '#ffcc00', '#ff6600', '#66aaff', '#ff0000', '#00ff00', '#0000ff',
+            '#ff00ff', '#00ffff', '#ffff00', '#ff8800', '#8800ff', '#00ff88', '#ff0088',
+            '#888888', '#4444ff', '#ff4444', '#44ff44', '#ff4488', '#88ff44', '#4488ff',
+            '#ff8844', '#8844ff', '#44ff88', '#88ff88', '#ff44ff', '#44ffff', '#ffff88'
+        ];
+
+        const numParticles = 100; // Quantidade de partículas criadas por ciclo
+
+        class Particle {
+            constructor() {
+                // Propriedades da partícula
+                this.size = Math.random() * 4 + 2; // Tamanho aleatório (2px a 6px)
+                this.color = colors[Math.floor(Math.random() * colors.length)]; // Cor aleatória
+                this.speed = Math.random() * 20 + 5; // Velocidade (5 a 20vw/vh)
+                this.duration = 10; // Duração da animação (4s a 10s)
+                this.startX = Math.random() * 100; // Posição X inicial
+                this.startY = Math.random() * 100; // Posição Y inicial
+                this.angle = Math.random() * 360; // Ângulo aleatório
+                this.endX = this.startX + Math.cos(this.angle * Math.PI / 180) * this.speed; // Posição final X
+                this.endY = this.startY + Math.sin(this.angle * Math.PI / 180) * this.speed; // Posição final Y
+            }
+
+            // Método para criar e animar a partícula
+            create() {
+                const particleElement = document.createElement('div');
+                particleElement.classList.add('particle');
+                particleElement.style.width = `${this.size}px`;
+                particleElement.style.height = `${this.size}px`;
+                particleElement.style.backgroundColor = this.color;
+                particleElement.style.left = `${this.startX}vw`;
+                particleElement.style.top = `${this.startY}vh`;
+
+                container.appendChild(particleElement);
+
+                this.animate(particleElement);
+            }
+
+            // Método para animar a partícula
+            animate(particleElement) {
+                // Calcula o deslocamento da partícula ao longo do tempo
+                const randomAngle = Math.random() * 360; // Define um novo ângulo para cada partícula
+                const randomSpeed = Math.random() * 20 + 5; // Define uma nova velocidade para cada partícula
+                const newEndX = this.startX + Math.cos(randomAngle * Math.PI / 180) * randomSpeed;
+                const newEndY = this.startY + Math.sin(randomAngle * Math.PI / 180) * randomSpeed;
+
+                const style = document.createElement('style');
+                style.innerHTML = `
+                    @keyframes moveParticle {
+                        0% { transform: translate(0, 0); opacity: 0; }
+                        50% { opacity: 1; }
+                        100% { transform: translate(${newEndX - this.startX}vw, ${newEndY - this.startY}vh); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+
+                particleElement.style.animation = `
+                    moveParticle ${this.duration}s linear forwards,
+                    flicker 2s infinite alternate ease-in-out
+                `;
+
+                // Remove partícula após a animação para evitar sobrecarga de memória
+                setTimeout(() => {
+                    particleElement.remove();
+                }, this.duration * 10000);
+            }
+        }
+
+        // Função para gerar partículas
+        function generateParticles() {
+            for (let i = 0; i < numParticles; i++) {
+                const particle = new Particle();
+                particle.create();
+            }
+        }
+
+        // Gerar partículas assim que a página for carregada
+        window.onload = function() {
+            generateParticles(); // Gera partículas assim que o usuário entra
+            setInterval(generateParticles, 10000); // A partir disso, as partículas são geradas a cada 2500ms
+        }
+
+    </script>
+
+</body>
+</html>

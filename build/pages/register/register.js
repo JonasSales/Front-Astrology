@@ -132,7 +132,6 @@ formRegister.addEventListener("submit", async (event) => {
         formRegister.reset();
     }
     catch (error) {
-        console.error("Erro ao enviar:");
         alert("Erro ao enviar o formulário.");
     }
 });

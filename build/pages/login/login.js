@@ -21,7 +21,6 @@ formLogin.addEventListener("submit", async (event) => {
         formLogin.reset();
     }
     catch (error) {
-        console.error("Erro ao enviar:");
         alert("Email ou senha incorretos.");
     }
 });
