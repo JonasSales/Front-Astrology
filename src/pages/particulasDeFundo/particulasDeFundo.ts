@@ -6,7 +6,7 @@ const colors = [
     '#ff8844', '#8844ff', '#44ff88', '#88ff88', '#ff44ff', '#44ffff', '#ffff88'
 ];
 
-const numParticles = 100; // Quantidade de partículas criadas por ciclo
+const numParticles = 70; // Quantidade de partículas criadas por ciclo
 
 class Particle {
     size: number;
@@ -23,7 +23,7 @@ class Particle {
         this.size = Math.random() * 4 + 2; // Tamanho aleatório (2px a 6px)
         this.color = colors[Math.floor(Math.random() * colors.length)]; // Cor aleatória
         this.speed = Math.random() * 20 + 5; // Velocidade (5 a 20vw/vh)
-        this.duration = 10; // Duração da animação (4s a 10s)
+        this.duration = 10; 
         this.startX = Math.random() * 100; // Posição X inicial
         this.startY = Math.random() * 100; // Posição Y inicial
         this.angle = Math.random() * 360; // Ângulo aleatório
@@ -71,7 +71,7 @@ class Particle {
         // Remove partícula após a animação para evitar sobrecarga de memória
         setTimeout(() => {
             particleElement.remove();
-        }, this.duration * 10000);
+        }, this.duration * 1);
     }
 }
 
